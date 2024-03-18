@@ -2,8 +2,8 @@ import { IsString } from "class-validator";
 
 export class CreatePartyDto {
     @IsString()
-    name: string;
+    party_name: string;
 
     @IsString()
-    description: string;
+    party_description: string;
 }

@@ -1,15 +1,41 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable, InternalServerErrorException } from '@nestjs/common';
 import { CreateDeviceDto } from './dto/create-device.dto';
 import { UpdateDeviceDto } from './dto/update-device.dto';
+import { InjectModel } from '@nestjs/mongoose';
+import { Device } from './entities/device.entity';
+import { Model } from 'mongoose';
 
 @Injectable()
 export class DevicesService {
-  create(createDeviceDto: CreateDeviceDto) {
-    return 'This action adds a new device';
+
+  constructor(
+    @InjectModel(Device.name) private deviceModel: Model<Device>
+  ){}
+
+  async create(createDeviceDto: CreateDeviceDto) {
+    
+    try {
+      const newDevice = new this.deviceModel(createDeviceDto)
+      
+      await newDevice.save()
+
+      return newDevice;
+      
+    } catch (error) {
+      if(error.code === 11000){
+        throw new BadRequestException(`The name of device or description already exists!`)
+      }
+      throw new InternalServerErrorException('Something terrible happend!!')
+    }
   }
 
   findAll() {
-    return `This action returns all devices`;
+    return this.deviceModel.find();
+  }
+
+  findForParty(party_name1: string){
+    const party_name = party_name1.toLocaleUpperCase();
+    return this.deviceModel.find({party_name})
   }
 
   findOne(id: number) {

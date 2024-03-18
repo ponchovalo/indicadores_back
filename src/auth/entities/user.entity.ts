@@ -9,16 +9,25 @@ export class User {
     username: string;
 
     @Prop({required:true})
+    password?: string;
+
+    @Prop({required:true})
+    email: string;
+
+    @Prop({required:true})
     name: string;
 
     @Prop({required:true})
-    departamento: string;
+    department: string;
 
     @Prop({required:true})
-    puesto: string;
+    position: string;
 
-    @Prop({required:true})
-    password?: string;
+    @Prop({type: String, default:'GUARDIA TA'})
+    workshift: string;
+
+    @Prop({type: String, default:'08:00 - 20:00'})
+    working_hours: string;
 
     @Prop({default:true})
     isActive: boolean;

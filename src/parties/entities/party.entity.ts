@@ -4,9 +4,9 @@ import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 export class Party {
 
     @Prop({unique:true, required: true})
-    name: string;
+    party_name: string;
     @Prop({unique:true, required: true})
-    description: string
+    party_description: string
 
 }
 

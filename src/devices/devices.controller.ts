@@ -17,6 +17,11 @@ export class DevicesController {
     return this.devicesService.findAll();
   }
 
+  @Get(':party')
+  findForParty(@Param('party') party_name: string) {
+    return this.devicesService.findForParty(party_name);
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.devicesService.findOne(+id);

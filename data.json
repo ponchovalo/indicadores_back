@@ -1,0 +1,54 @@
+
+
+{
+    "user":{
+        "username":"string",
+        "password":"string",
+        "email":"string",
+        "name":"string",
+        "department":"string",
+        "position":"string",
+        "workshift":"string",
+        "working_hours":"string",
+        "role":"string[]"
+    },
+    "party":{
+        "party_name":"string",
+        "party_description":"string"
+    },
+    "device":{
+        "device_name":"string",
+        "device_description":"string",
+        "party_name":"string"
+    },
+    "unit":{
+        "unit_id":"string",
+        "unit_name":"string"
+    },
+    "location":{
+        "known_location":"string",
+        "area_id":"string",
+        "area_name":"string",
+        "units":"unit[]"
+    },
+    "activity_base":{
+        "activity":"string",
+        "activity_type":"string",
+        "ticket_decription":"string",
+        "admin_activity":"string",
+        "fault_type":"string",
+        "fault_category":"string",
+        "problem_description":"string[]",
+        "failure_reason":"string",
+        "device_name":"string",
+        "solution_type":"string",
+        "tools":"string",
+        "supplies":"string",
+        "party_name":"string",
+        "party_description":"string",
+        "observations":"string"
+    }
+
+
+
+}

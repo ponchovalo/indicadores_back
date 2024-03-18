@@ -49,12 +49,17 @@ export class AuthService {
 
   async register(registerUserDto: RegisterUserDto):Promise<LoginResponse>{
 
-    const user = await this.create({
-      username: registerUserDto.username, 
-      name: registerUserDto.name, 
-      password: registerUserDto.password, 
-      departamento: 'tutum', 
-      puesto: 'tutum' })
+    const user = await this.create(
+      {
+        username: registerUserDto.username, 
+        name: registerUserDto.name,
+        email: 'tutum@tutum.com.mx', 
+        password: registerUserDto.password, 
+        department: 'tutum', 
+        position: 'tutum',
+      }
+      
+    )
 
     console.log(user)
 
