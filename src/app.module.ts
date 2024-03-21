@@ -5,15 +5,16 @@ import { ConfigModule } from '@nestjs/config';
 import { ActivitiesModule } from './activities/activities.module';
 import { PartiesModule } from './parties/parties.module';
 import { DevicesModule } from './devices/devices.module';
+import { ActivityBaseModule } from './activity_base/activity_base.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
     MongooseModule.forRoot(process.env.MONGO_URI),
     AuthModule,
-    ActivitiesModule,
     PartiesModule,
-    DevicesModule
+    DevicesModule,
+    ActivityBaseModule
   ],
   controllers: [],
   providers: [],
