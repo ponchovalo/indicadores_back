@@ -17,6 +17,11 @@ export class ActivityBaseController {
     return this.activityBaseService.findAll();
   }
 
+  @Get(':device')
+  findForDevice(@Param('device') device_name: string) {
+    return this.activityBaseService.findForDevice(device_name);
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.activityBaseService.findOne(+id);

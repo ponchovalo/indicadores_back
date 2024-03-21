@@ -34,7 +34,7 @@ export class DevicesService {
   }
 
   findForParty(party_name1: string){
-    const party_name = party_name1.toLocaleUpperCase();
+    const party_name = party_name1.toUpperCase();
     return this.deviceModel.find({party_name})
   }
 

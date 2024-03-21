@@ -2,10 +2,10 @@ import { Module } from '@nestjs/common';
 import { AuthModule } from './auth/auth.module';
 import { MongooseModule } from '@nestjs/mongoose'; 
 import { ConfigModule } from '@nestjs/config';
-import { ActivitiesModule } from './activities/activities.module';
 import { PartiesModule } from './parties/parties.module';
 import { DevicesModule } from './devices/devices.module';
 import { ActivityBaseModule } from './activity_base/activity_base.module';
+import { LocationModule } from './location/location.module';
 
 @Module({
   imports: [
@@ -14,7 +14,8 @@ import { ActivityBaseModule } from './activity_base/activity_base.module';
     AuthModule,
     PartiesModule,
     DevicesModule,
-    ActivityBaseModule
+    ActivityBaseModule,
+    LocationModule
   ],
   controllers: [],
   providers: [],
