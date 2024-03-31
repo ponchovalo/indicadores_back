@@ -10,7 +10,7 @@ export class ActivityBase {
     activity_type: string;
 
     @Prop({required: true})
-    ticket_decription: string;
+    ticket_description: string;
 
     @Prop({required: true})
     admin_activity: string;

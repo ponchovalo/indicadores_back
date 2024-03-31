@@ -17,8 +17,19 @@ export class ActivityBaseController {
     return this.activityBaseService.findAll();
   }
 
-  @Get(':device')
-  findForDevice(@Param('device') device_name: string) {
+  @Post('/activity-type')
+  findForActivityType(@Body('activity_type') activity_type: string) {
+    return this.activityBaseService.findForActivityType(activity_type);
+  }
+
+  @Post('/description-like')
+  findForDescriptionLike(@Body('term') term: string) {
+    console.log(term)
+    return this.activityBaseService.findForDescriptionLike(term);
+  }
+
+  @Post('/device')
+  findForDevice(@Body('device_name') device_name: string) {
     return this.activityBaseService.findForDevice(device_name);
   }
 

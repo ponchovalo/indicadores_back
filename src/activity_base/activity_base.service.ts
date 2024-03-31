@@ -20,6 +20,17 @@ export class ActivityBaseService {
     return this.activityBaseModel.find();
   }
 
+  
+  findForActivityType(activity_type1:string) {
+    const activity_type = activity_type1.toUpperCase();
+    return this.activityBaseModel.find({activity_type});
+  }
+
+  findForDescriptionLike(term1:string){
+    const term: string = term1.toUpperCase()
+    return this.activityBaseModel.find({ticket_description: {$regex: term}})
+  }
+
   findForDevice(device_name1: string) {
     const device_name = device_name1.toUpperCase();
     return this.activityBaseModel.find({device_name});
