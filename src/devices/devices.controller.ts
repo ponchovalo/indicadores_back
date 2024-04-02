@@ -17,8 +17,9 @@ export class DevicesController {
     return this.devicesService.findAll();
   }
 
-  @Get(':party')
-  findForParty(@Param('party') party_name: string) {
+  @Post('/party')
+  findForParty(@Body('party_name') party_name: string) {
+    console.log(party_name)
     return this.devicesService.findForParty(party_name);
   }
 
