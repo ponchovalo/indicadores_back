@@ -16,6 +16,10 @@ export class LocationController {
   findAll() {
     return this.locationService.findAll();
   }
+  @Get("/areas")
+  findAreas() {
+    return this.locationService.findAreas();
+  }
 
   @Get(':id')
   findOne(@Param('id') id: string) {

@@ -20,6 +20,10 @@ export class LocationService {
     return this.locationModel.find();
   }
 
+  findAreas() {
+    return this.locationModel.find({},{"location":1,"area_id":1,"area_name":1});
+  }
+
   findOne(id: number) {
     return `This action returns a #${id} location`;
   }
