@@ -21,6 +21,11 @@ export class LocationController {
     return this.locationService.findAreas();
   }
 
+  @Post("/units")
+  findUnits(@Body('area_id') area_id: string) {
+    return this.locationService.findUnits(area_id);
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.locationService.findOne(+id);
