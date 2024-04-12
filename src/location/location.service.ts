@@ -25,7 +25,7 @@ export class LocationService {
   }
 
   findUnits(area_id: string){
-    return this.locationModel.find({area_id},{"units":1})
+    return this.locationModel.findOne({area_id},{"units":1})
   }
 
   findOne(id: number) {
