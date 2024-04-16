@@ -6,6 +6,7 @@ import { PartiesModule } from './parties/parties.module';
 import { DevicesModule } from './devices/devices.module';
 import { ActivityBaseModule } from './activity_base/activity_base.module';
 import { LocationModule } from './location/location.module';
+import { ActivitiesModule } from './activities/activities.module';
 
 @Module({
   imports: [
@@ -15,7 +16,8 @@ import { LocationModule } from './location/location.module';
     PartiesModule,
     DevicesModule,
     ActivityBaseModule,
-    LocationModule
+    LocationModule,
+    ActivitiesModule
   ],
   controllers: [],
   providers: [],
