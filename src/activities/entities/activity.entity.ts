@@ -22,28 +22,28 @@ export class Activity {
     final_date_time: Date;
 
     @Prop({required: true})
-    time_out_food: Date;
+    time_out_food: string;
 
     @Prop({required: true})
-    time_out_transfer: Date;
+    time_out_transfer: string;
 
     @Prop({required: true})
-    time_out_access: Date;
+    time_out_access: string;
 
     @Prop({required: true})
-    time_out_code: Date;
+    time_out_code: string;
 
     @Prop({required: true})
-    time_out_store: Date;
+    time_out_store: string;
 
     @Prop({required: true})
-    time_out_total: Date;
+    time_out_total: string;
 
     @Prop({required: true})
-    total_efective_activity: Date;
+    total_efective_activity: string;
 
     @Prop({required: true})
-    total_real_activity: Date;
+    total_real_activity: string;
 
     @Prop({required: true})
     activity_type: string;

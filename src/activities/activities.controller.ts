@@ -12,6 +12,11 @@ export class ActivitiesController {
     return this.activitiesService.create(createActivityDto);
   }
 
+  @Post('forday')
+  findForDate(@Body() date: Date) {
+    return this.activitiesService.findAllForDate(date);
+  }
+
   @Get()
   findAll() {
     return this.activitiesService.findAll();
