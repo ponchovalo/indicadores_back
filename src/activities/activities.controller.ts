@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { ActivitiesService } from './activities.service';
 import { CreateActivityDto } from './dto/create-activity.dto';
 import { UpdateActivityDto } from './dto/update-activity.dto';
+import { RequestActivitiesDto } from './dto/request-activities.dto';
 
 @Controller('activities')
 export class ActivitiesController {
@@ -12,9 +13,9 @@ export class ActivitiesController {
     return this.activitiesService.create(createActivityDto);
   }
 
-  @Post('forday')
-  findForDate(@Body() date: Date) {
-    return this.activitiesService.findAllForDate(date);
+  @Post('fordate')
+  findForDate(@Body()  requestActivitiesDto: RequestActivitiesDto ) {
+    return this.activitiesService.findAllForDate(requestActivitiesDto);
   }
 
   @Get()

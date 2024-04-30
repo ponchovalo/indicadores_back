@@ -3,6 +3,8 @@ import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 @Schema()
 export class Activity {
 
+    id: string;
+
     @Prop({required: true})
     date: Date;
 

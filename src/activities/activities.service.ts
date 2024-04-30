@@ -1,9 +1,11 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable, InternalServerErrorException } from '@nestjs/common';
 import { CreateActivityDto } from './dto/create-activity.dto';
 import { UpdateActivityDto } from './dto/update-activity.dto';
 import { Activity } from './entities/activity.entity';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
+import { RequestActivitiesDto } from './dto/request-activities.dto';
+import { ResponseActivityDto } from './dto/response-activity.dto';
 
 @Injectable()
 export class ActivitiesService {
@@ -12,19 +14,36 @@ export class ActivitiesService {
     @InjectModel(Activity.name) private activityModel: Model<Activity>
   ){}
 
-  create(createActivityDto: CreateActivityDto) {
-    const activity: Activity = new Activity();
-    activity.date = new Date(createActivityDto.date)
-    activity.initial_date_time = new Date(createActivityDto.initial_date_time)
-    return activity
+  async create(createActivityDto: CreateActivityDto): Promise<Activity> {
+    try {
+      const newActivity = new this.activityModel(createActivityDto)
+      
+      await newActivity.save()
+
+      return newActivity;
+      
+    } catch (error) {
+      if(error.code === 11000){
+        throw new BadRequestException(`The name of party or description already exists!`)
+      }
+      throw new InternalServerErrorException('Something terrible happend!!')
+    }
   }
 
-  findAllForDate(date: Date) {
-    return this.activityModel.find({date});
+  findAllForDate(requestActivitiesDto: RequestActivitiesDto) {
+    try {
+      const date = new Date(requestActivitiesDto.date);
+      const user_name = requestActivitiesDto.user_name;
+
+      return this.activityModel.find({date, user_name})
+
+    } catch (error) {
+      
+    }
   }
 
   findAll() {
-    return `This action returns all activities`;
+    return this.activityModel.find();
   }
 
   findOne(id: number) {
