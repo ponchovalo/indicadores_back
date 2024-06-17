@@ -5,7 +5,6 @@ import { Activity } from './entities/activity.entity';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { RequestActivitiesDto } from './dto/request-activities.dto';
-import { ResponseActivityDto } from './dto/response-activity.dto';
 
 @Injectable()
 export class ActivitiesService {
@@ -34,6 +33,7 @@ export class ActivitiesService {
     try {
       const date = new Date(requestActivitiesDto.date);
       const user_name = requestActivitiesDto.user_name;
+      console.log(date)
 
       return this.activityModel.find({date, user_name})
 
